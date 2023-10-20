@@ -36,17 +36,38 @@ func trap(height []int) int {
 	var total = 0
 
 	for i, h := range height {
-		for len(stack) > 0 && h > stack[len(stack)-1] {
+		for len(stack) > 0 && h > height[stack[len(stack)-1]] {
 			var top = stack[len(stack)-1]
 			stack = stack[:len(stack)-1]
 			if len(stack) == 0 {
 				break
 			}
 			var left = stack[len(stack)-1]
-			total += (i - left - 1) * (min(height[left], height[i]) - height[top])
+			total += ((i - left - 1) * (min(height[left], h) - height[top]))
 		}
 		stack = append(stack, i)
 	}
 
 	return total
+}
+
+// two pointers
+func trap(height []int) int {
+	var n = len(height)
+	var left, right = 0, n - 1
+	var leftMax, rightMax = 0, 0
+	var result = 0
+
+	for left <= right {
+		if height[left] < height[right] { // leftMax < rightMax
+			leftMax = max(leftMax, height[left])
+			result += (leftMax - height[left])
+			left++
+		} else {
+			rightMax = max(rightMax, height[right])
+			result += (rightMax - height[right])
+			right--
+		}
+	}
+	return result
 }
