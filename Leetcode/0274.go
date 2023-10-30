@@ -1,4 +1,4 @@
-package leetcoode
+package leetcode
 
 // sort
 func hIndex(citations []int) int {

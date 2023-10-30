@@ -1,4 +1,4 @@
-package leetcoode
+package leetcode
 
 func reverseWords(s string) string {
 	// 1. erase space in s

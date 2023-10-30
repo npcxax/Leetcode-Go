@@ -1,4 +1,4 @@
-package leetcoode
+package leetcode
 
 func candy(ratings []int) int {
 	var n = len(ratings)

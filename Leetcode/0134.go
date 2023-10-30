@@ -1,4 +1,4 @@
-package leetcoode
+package leetcode
 
 func canCompleteCircuit(gas []int, cost []int) int {
 	var n = len(gas)

@@ -1,4 +1,4 @@
-package leetcoode
+package leetcode
 
 // Reverse Lookup Departure Location
 // func jump(nums []int) int {

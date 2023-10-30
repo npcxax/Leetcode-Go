@@ -1,4 +1,4 @@
-package leetcoode
+package leetcode
 
 // dp
 func trap(height []int) int {

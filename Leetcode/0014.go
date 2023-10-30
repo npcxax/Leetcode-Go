@@ -1,4 +1,4 @@
-package leetcoode
+package leetcode
 
 func longestCommonPrefix(strs []string) string {
 	i := 0

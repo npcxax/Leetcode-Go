@@ -1,4 +1,4 @@
-package leetcoode
+package leetcode
 
 func productExceptSelf(nums []int) []int {
 	var n = len(nums)

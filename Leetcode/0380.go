@@ -1,4 +1,4 @@
-package leetcoode
+package leetcode
 
 import "math/rand"
 

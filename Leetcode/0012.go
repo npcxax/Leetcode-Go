@@ -1,4 +1,4 @@
-package leetcoode
+package leetcode
 
 var valueSymbols = map[int]string{
 	1:    "I",

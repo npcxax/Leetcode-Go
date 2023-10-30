@@ -1,4 +1,4 @@
-package leetcoode
+package leetcode
 
 func majorityElement(nums []int) int {
 	var count = 1

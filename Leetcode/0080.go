@@ -1,4 +1,4 @@
-package leetcoode
+package leetcode
 
 func removeDuplicates(nums []int) int {
 	var n = len(nums)

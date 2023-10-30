@@ -1,4 +1,4 @@
-package leetcodego
+package leetcode
 
 func sortedSquares(nums []int) []int {
 	left, right := 0, len(nums)-1

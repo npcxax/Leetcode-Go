@@ -1,4 +1,4 @@
-package leetcoode
+package leetcode
 
 func solve(nums []int, left int, right int) {
 	for left < right {

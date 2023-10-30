@@ -1,4 +1,4 @@
-package leetcoode
+package leetcode
 
 // if nums[fast]!=nums[fast-1], then let nums[slow] = nums[fast]
 func removeDuplicates(nums []int) int {

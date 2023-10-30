@@ -1,4 +1,4 @@
-package leetcoode
+package leetcode
 
 func canJump(nums []int) bool {
 	var rightMost = 0

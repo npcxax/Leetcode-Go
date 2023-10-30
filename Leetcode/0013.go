@@ -1,4 +1,4 @@
-package leetcoode
+package leetcode
 
 var rToI = map[byte]int{
 	'I': 1,
