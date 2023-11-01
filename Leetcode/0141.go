@@ -1,5 +1,9 @@
 package leetcode
 
+type ListNode struct {
+	Next *ListNode
+}
+
 func hasCycle(head *ListNode) bool {
 	if head == nil || head.Next == nil {
 		return false
