@@ -1,6 +1,8 @@
 package leetcode
 
-import "math"
+import (
+	"math"
+)
 
 type TreeNode struct {
 	Val   int
@@ -37,28 +39,56 @@ func countNodes(root *TreeNode) int {
 // official
 func countNodes(root *TreeNode) int {
 	p := root
-	h := 0.0
+	height := 0
 	for p != nil {
 		p = p.Left
-		h++
+		height++
 	}
-	left, right := int(math.Pow(2, h)), int(math.Pow(2, h+1))-1
-	for left < right {
-		mid := (left + right) >> 1
-		p = root
-		for mid > 0 && p != nil {
-			if mid&1 == 0 {
+	height -= 1
+	var exist = func(node *TreeNode, height int, num int) bool {
+		b := 1 << (height - 1)
+		p := node
+		for b > 0 && p != nil {
+			if num&b == 0 {
 				p = p.Left
 			} else {
 				p = p.Right
 			}
-			mid = mid >> 1
+			b >>= 1
 		}
-		if p == nil {
-			right = mid - 1
+		return p != nil
+	}
+	var left, right = int(math.Pow(2, float64(height))), int(math.Pow(2, float64(height+1)) - 1)
+	for left < right {
+		mid := (right-left+1)>>1 + left // up bound
+		if exist(root, height, mid) {
+			left = mid
 		} else {
-			left = mid + 1
+			right = mid - 1
 		}
 	}
 	return left
+}
+
+// other
+func countNodes(root *TreeNode) int {
+	if root == nil {
+		return 0
+	}
+	heightL := 0
+	p := root
+	for p != nil {
+		p = p.Left
+		heightL++
+	}
+	p = root
+	heightR := 0
+	for p != nil {
+		p = p.Right
+		heightR++
+	}
+	if heightL == heightR {
+		return int(math.Pow(2, float64(heightL)) - 1)
+	}
+	return countNodes(root.Left) + countNodes(root.Right) + 1
 }
