@@ -37,3 +37,47 @@ func findOrder(numCourses int, prerequisites [][]int) []int {
 
 	return result
 }
+
+// dfs
+func findOrder(numCourses int, prerequisites [][]int) []int {
+	var (
+		result  = make([]int, 0)
+		edges   = make([][]int, numCourses)
+		visited = make([]int, numCourses)
+		valid   = true
+		dfs     func(n int)
+	)
+
+	dfs = func(n int) {
+		visited[n] = 1
+		for _, edge := range edges[n] {
+			if visited[edge] == 0 {
+				dfs(edge)
+				if !valid {
+					return
+				}
+			} else if visited[edge] == 1 {
+				valid = false
+				return
+			}
+		}
+		visited[n] = 2
+		result = append(result, n)
+	}
+
+	for _, pr := range prerequisites {
+		edges[pr[0]] = append(edges[pr[0]], pr[1])
+	}
+
+	for i := 0; i < numCourses && valid; i++ {
+		if visited[i] == 0 {
+			dfs(i)
+		}
+	}
+
+	if !valid {
+		return []int{}
+	}
+
+	return result
+}
