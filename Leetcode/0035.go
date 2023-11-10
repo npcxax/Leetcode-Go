@@ -2,7 +2,7 @@ package leetcode
 
 func searchInsert(nums []int, target int) int {
 	var left, right = 0, len(nums) - 1
-	for left < right {
+	for left <= right {
 		mid := (left + right) >> 1
 		if nums[mid] == target {
 			return mid
